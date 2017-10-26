@@ -1,0 +1,68 @@
+<html>
+    <!--Note: I have no idea why the stay function onclick is not working? It should be? -->
+<head><title>Like Blackjack game</title></head>
+<body>
+<script language="javascript" type="text/javascript">
+
+var dealerNumber = Math.floor((Math.random() * 21) + 2);
+
+var playerNumber1 = Math.floor((Math.random() * 11) + 1);
+var playerNumber2 = Math.floor((Math.random() * 10) + 1);
+
+
+
+document.write("Player numbers: " + playerNumber1 + " and ");
+document.write(playerNumber2 + "  ");
+
+
+var hit = function(){
+    var hitNumber = Math.floor((Math.random() * 11) + 1);
+    
+    var finalTotal = (playerNumber1 + playerNumber2) + hitNumber;
+    
+    document.write("Ok the number you got is: " + hitNumber + " <br> your new total is:  ");
+    
+    document.write(finalTotal + "<br><br>");
+    
+    if (finalTotal > 21){
+        document.write(" Sorry you busted!");
+    }
+  else { document.write("<br>Dealer Total: " + dealerNumber + "<br>your total: " + finalTotal);}
+         if( dealerNumber > finalTotal){
+             document.write("<br><br>You lose");
+         }
+         else {document.write("<br><br>You're a winner!");}
+  } 
+
+ 
+  
+  var stay = function(){
+      
+      var playerTotal = (playerNumber1 + playerNumber2);
+      
+      document.write("Your Total: " + playerTotal + "<br>Dealer total: " + dealerNumber);
+      
+      if (playerTotal > dealerNumber){
+          document.write("<br><br>You're a winner!!");
+      }
+      else {
+          document.write("<br><br>You're a loser,  sorry!");
+      }
+  }
+  
+  
+
+
+
+</script>
+
+<form>
+         
+         
+     <input type ="button" value ="Hit?" onclick="hit();" />     
+    <input type ="button" value ="Stay?" onclick="stay();" />
+   
+</form>
+
+</body>
+</html>
